@@ -6,8 +6,20 @@ import static org.junit.Assert.assertEquals;
 
 public class ExampleTest {
 
+    BibliotecaApp bibliotecaApp = new BibliotecaApp();
+
     @Test
-    public void test() {
-        assertEquals(1, 1);
+    public void testisValidParam() {
+        String str = null;
+        boolean flag = bibliotecaApp.isValidParam(str);
+        assertEquals(false, flag);
     }
+
+    @Test
+    public void testShowMainMenu() {
+        // assertEquals(1, 1);
+        bibliotecaApp.showMainMenu();
+    }
+
+
 }
