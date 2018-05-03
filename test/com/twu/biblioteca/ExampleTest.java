@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class ExampleTest {
 
     BibliotecaApp bibliotecaApp = new BibliotecaApp();
+    UserService userService = new UserService();
 
     @Test
     public void testIsValidParamWhenInputMistake() {
@@ -34,6 +35,20 @@ public class ExampleTest {
         String bookId = "1009";
         BookInfo info  = bibliotecaApp.getBookById(bookId);
         assertEquals(info, null);
+    }
+
+    @Test
+    public void testUserLoginWhenInputRight(){
+        String id = "100-0001";
+        String password = "123123";
+        assertEquals(userService.login(id,password), true);
+    }
+
+    @Test
+    public void testUserLoginWhenInputMistake(){
+        String id = "100-0001";
+        String password = "123123344";
+        assertEquals(userService.login(id,password), false);
     }
 
 }
